@@ -1,0 +1,6 @@
+cryptography
+flask
+flask_cors
+pymongo
+requests
+services
