@@ -4,7 +4,9 @@ QuantumCryptoShield is a Python-based framework focused on secure cryptographic 
 
 ## Demo Video
 
-Watch our [QuantumCryptoShield Demo Video]([https://youtu.be/YOUR_VIDEO_ID](https://youtu.be/uuE7Ix9A3sA)) to see the application in action.
+Watch our [QuantumCryptoShield Demo Video](https://youtu.be/uuE7Ix9A3sA?si=1Fq4NaWR6ZIjHhlx) to see the application in action.
+
+[![QuantumCryptoShield Demo](https://img.youtube.com/vi/uuE7Ix9A3sA/0.jpg)](https://www.youtube.com/watch?v=uuE7Ix9A3sA)
 
 ## Main Features:
 
