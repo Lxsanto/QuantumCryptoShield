@@ -3,7 +3,7 @@ import requests
 class QuantumKeyService:
     def generate_qrng_key(self, length=32):
         num_values = length  
-        api_url = f'https://qrng.anu.edu.au/API/jsonI.php?length={num_values}&type=hex16&size=8'
+        api_url = f'https://qrng.anu.edu.au/API/jsonI.php?length=10&type=uint8'
 
         try:
             response = requests.get(api_url)
