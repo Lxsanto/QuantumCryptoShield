@@ -1,19 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #7c4dff;
+    --accent-color: #00bcd4;
+    --background-color: #0a0e17;
+    --card-background: rgba(30, 40, 60, 0.8);
+    --text-color: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background-color: #f5f5f5;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1, h2 {
-    color: #333;
+    font-family: 'Exo 2', sans-serif;
+    color: var(--primary-color);
+}
+
+#quantumcryptoshield-dashboard {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: titleGlow 3s infinite alternate;
+}
+
+.tagline {
+    font-size: 1em;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes titleGlow {
+    from { filter: drop-shadow(0 0 2px var(--primary-color)); }
+    to { filter: drop-shadow(0 0 5px var(--secondary-color)); }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+#app {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--card-background);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(74, 144, 226, 0.3);
+}
+
+.card-header {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 1.3em;
+    display: flex;
+    align-items: center;
+    color: var(--background-color);
+}
+
+.card-header h2 i {
+    margin-right: 20px;
+    font-size: 1.2em;
+    animation: iconPulse 2s infinite;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.card-body {
+    padding: 20px;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    background-color: rgba(10, 14, 23, 0.7);
+    color: var(--text-color);
     resize: vertical;
+    min-height: 100px;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
 }
 
-button {
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(124, 77, 255, 0.3);
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 5px var(--primary-color); }
+    to { box-shadow: 0 0 20px var(--secondary-color); }
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn i {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+.btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.btn:hover::after {
+    left: 100%;
+}
+
+.mt-3 {
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 15px;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    100% { transform: translateX(100%); }
+}
+
+.file-upload {
+    margin-bottom: 20px;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 10px 15px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: var(--background-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-label:hover {
+    transform: scale(1.05);
+}
+
+.file-input {
+    display: none;
+}
+
+.file-name {
+    display: inline-block;
+    margin-left: 10px;
+    color: var(--accent-color);
+}
+
+.download-btn {
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer p {
+    font-size: 0.9em;
+    color: var(--text-color);
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+.crypto-quote {
+    font-style: italic;
+    margin-top: 10px;
+    color: var(--accent-color);
+    font-size: 0.85em;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 1s forwards;
+}
+
+.stars, .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.stars {
+    background: #000 url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png') repeat top center;
+    z-index: -2;
+}
+
+.twinkling {
+    background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png') repeat top center;
+    z-index: -1;
+    animation: move-twink-back 200s linear infinite;
+}
+
+@keyframes move-twink-back {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+@media (max-width: 768px) {
+    #app {
+        grid-template-columns: 1fr;
+    }
+    
+    #quantumcryptoshield-dashboard {
+        font-size: 2em;
+    }
+    
+    .tagline {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-header h2 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .card-header h2 i {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
 }
