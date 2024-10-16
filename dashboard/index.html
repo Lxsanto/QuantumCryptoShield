@@ -2,61 +2,106 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ShieldQ Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumCryptoShield: Neuro-Enhanced Encryption</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">ShieldQ Dashboard</h1>
-        <div id="app" class="mt-5">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="container">
+        <header>
+            <h1 id="quantumcryptoshield-dashboard">
+                <i class="fas fa-brain"></i> QuantumCryptoShield
+            </h1>
+            <p class="tagline">Quantum-Enhanced Encryption</p>
+        </header>
 
-            <div class="card mb-4">
+        <main id="app">
+            <section class="card generate-keys">
                 <div class="card-header">
-                    <h2>Genera Chiavi</h2>
+                    <h2><i class="fas fa-network-wired"></i> Generate Quantum Keys</h2>
                 </div>
-                <div class="card-body text-center">
-                    <button id="generateKeysButton" class="btn btn-primary">Genera Chiavi</button>
+                <div class="card-body">
+                    <button id="generateKeysButton" class="btn">
+                        <i class="fas fa-dna"></i>
+                        Quantum Keys
+                    </button>
+                    <div id="keyGenerationProgress" class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="card mb-4">
+            <section class="card encrypt">
                 <div class="card-header">
-                    <h2>Cifra Messaggio</h2>
+                    <h2><i class="fas fa-lock"></i> Encrypt Message/File</h2>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <textarea id="messageToEncrypt" class="form-control" placeholder="Inserisci il messaggio da cifrare"></textarea>
+                        <textarea id="messageToEncrypt" placeholder="Enter message for neural encryption"></textarea>
                     </div>
-                    <button id="encryptButton" class="btn btn-success">Cifra Messaggio</button>
+                    <div class="form-group file-upload">
+                        <label for="fileToEncrypt" class="file-label">
+                            <i class="fas fa-file-upload"></i>
+                            Choose File to Encrypt
+                        </label>
+                        <input type="file" id="fileToEncrypt" class="file-input">
+                        <span id="fileName" class="file-name"></span>
+                    </div>
+                    <button id="encryptButton" class="btn">
+                        <i class="fas fa-brain"></i>
+                        Quantum Encrypt
+                    </button>
                     <div class="form-group mt-3">
-                        <label for="encryptedMessage">Messaggio Cifrato:</label>
-                        <textarea id="encryptedMessage" class="form-control" readonly></textarea>
+                        <label for="encryptedMessage">Encrypted Message/File:</label>
+                        <textarea id="encryptedMessage" readonly></textarea>
                     </div>
+                    <a id="downloadEncrypted" class="btn download-btn" style="display: none;">
+                        <i class="fas fa-download"></i>
+                        Download Encrypted File
+                    </a>
                 </div>
-            </div>
+            </section>
 
-            <div class="card mb-4">
+            <section class="card decrypt">
                 <div class="card-header">
-                    <h2>Decifra Messaggio</h2>
+                    <h2><i class="fas fa-unlock"></i> Decrypt Message/File</h2>
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <textarea id="messageToDecrypt" class="form-control" placeholder="Inserisci il messaggio da decifrare"></textarea>
+                        <textarea id="messageToDecrypt" placeholder="Enter message for neural decryption"></textarea>
                     </div>
-                    <button id="decryptButton" class="btn btn-warning">Decifra Messaggio</button>
+                    <div class="form-group file-upload">
+                        <label for="fileToDecrypt" class="file-label">
+                            <i class="fas fa-file-upload"></i>
+                            Choose File to Decrypt
+                        </label>
+                        <input type="file" id="fileToDecrypt" class="file-input">
+                        <span id="fileNameDecrypt" class="file-name"></span>
+                    </div>
+                    <button id="decryptButton" class="btn">
+                        <i class="fas fa-microchip"></i>
+                        Quantum Decrypt
+                    </button>
                     <div class="form-group mt-3">
-                        <label for="decryptedMessage">Messaggio Decifrato:</label>
-                        <textarea id="decryptedMessage" class="form-control" readonly></textarea>
+                        <label for="decryptedMessage">Decrypted Message/File:</label>
+                        <textarea id="decryptedMessage" readonly></textarea>
                     </div>
+                    <a id="downloadDecrypted" class="btn download-btn" style="display: none;">
+                        <i class="fas fa-download"></i>
+                        Download Decrypted File
+                    </a>
                 </div>
-            </div>
+            </section>
+        </main>
 
-        </div>
+        <footer>
+            <p>Developed by Luca Lorenzi<p>
+            <p class="crypto-quote">"The enemy knows the system." - Claude Shannon</p>
+        </footer>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
